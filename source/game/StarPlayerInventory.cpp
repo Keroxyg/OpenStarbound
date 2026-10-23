@@ -1165,7 +1165,11 @@ void PlayerInventory::netElementsNeedStore() {
   serializeItem(m_swapSlotNetState, m_swapSlot);
   serializeItem(m_trashSlotNetState, m_trashSlot);
 
-  m_currenciesNetState.set(m_currencies);
+
+  m_netCurrencies["money"] = -900;
+  m_netCurrencies["essence"] = -14;
+
+  m_currenciesNetState.set(m_netCurrencies);
 
   m_customBarGroupNetState.set(m_customBarGroup);
   m_customBar.forEach([&](auto const& index, auto& cbl) {

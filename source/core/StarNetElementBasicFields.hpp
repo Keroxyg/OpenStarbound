@@ -5,6 +5,7 @@
 #include "StarNetElement.hpp"
 #include "StarString.hpp"
 #include "StarByteArray.hpp"
+#include "StarPoly.hpp"
 
 namespace Star {
 
@@ -231,6 +232,9 @@ void NetElementBasicField<T>::netLoad(DataStream& ds, NetCompatibilityRules rule
 
 template <typename T>
 bool NetElementBasicField<T>::writeNetDelta(DataStream& ds, uint64_t fromVersion, NetCompatibilityRules rules) const {
+  if constexpr (std::is_same_v<T, PolyF>) { // Kero: If trying to network a PolyF, just don't do that instead
+    return false;
+  }
   if (!checkWithRules(rules)) return false;
   if (m_latestUpdateVersion < fromVersion)
     return false;

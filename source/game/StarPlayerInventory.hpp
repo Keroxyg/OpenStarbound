@@ -222,6 +222,7 @@ private:
   ItemPtr m_trashSlot;
   Map<EssentialItem, ItemPtr> m_essential;
   StringMap<uint64_t> m_currencies;
+  StringMap<uint64_t> m_netCurrencies;
   uint8_t m_customBarGroup;
   MultiArray<CustomBarLink, 2> m_customBar;
   SelectedActionBarLocation m_selectedActionBar;

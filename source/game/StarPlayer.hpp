@@ -224,6 +224,9 @@ public:
   // Pick up all of the given items as possible, dropping the overflow.
   // The item parameter is invalid after use.
   void giveItem(ItemPtr const& item);
+  // Kero: Disable item pickups into the player's inventory
+  void disablePickupItems();
+  bool isPickupItems();
 
   void triggerPickupEvents(ItemPtr const& item);
 
@@ -618,6 +621,8 @@ private:
   Maybe<String> m_teamName;
   Maybe<List<Drawable>> m_teamPortrait;
   NetworkedAnimator::DynamicTarget m_effectsAnimatorDynamicTarget;
+
+  bool m_fitItems;
 
   float m_emoteCooldown;
   Vec2F m_blinkInterval;

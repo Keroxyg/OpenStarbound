@@ -1059,7 +1059,8 @@ void MainInterface::displayDefaultPanes() {
   m_paneManager.displayRegisteredPane(MainInterfacePanes::ActionBar);
   m_paneManager.displayRegisteredPane(MainInterfacePanes::Chat);
   m_paneManager.displayRegisteredPane(MainInterfacePanes::TeamBar);
-  m_paneManager.displayRegisteredPane(MainInterfacePanes::StatusPane);
+  //Kero: Don't like it, don't render it
+  //m_paneManager.displayRegisteredPane(MainInterfacePanes::StatusPane);
 }
 
 PanePtr MainInterface::createEscapeDialog() {

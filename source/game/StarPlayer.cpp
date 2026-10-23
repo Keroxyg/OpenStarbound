@@ -1288,7 +1288,21 @@ PlayerInventoryPtr Player::inventory() const {
   return m_inventory;
 }
 
+void Player::disablePickupItems() {
+    if (m_fitItems)
+        m_fitItems = false;
+    else
+        m_fitItems = true;
+}
+
+bool Player::isPickupItems() {
+    return m_fitItems;
+}
+
 uint64_t Player::itemsCanHold(ItemPtr const& items) const {
+  if (!m_fitItems)
+    return 0;
+
   return m_inventory->itemsCanFit(items);
 }
 

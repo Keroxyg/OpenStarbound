@@ -696,8 +696,8 @@ LuaCallbacks LuaBindings::makePlayerCallbacks(Player* player) {
   callbacks.registerCallback("setBusyIndicatorHidden", [player](String const& state, bool hidden) {
       player->setBusyIndicatorHidden(PlayerBusyStateNames.getLeft(state), hidden);
     });
-  callbacks.registerCallback("disablePickupItems", [player]() {
-      player->disablePickupItems(); // Kero: My callbacks #mycallbacks
+  callbacks.registerCallback("disablePickupItems", [player](bool disabled) {
+      player->disablePickupItems(disabled); // Kero: My callbacks #mycallbacks
     });
   callbacks.registerCallback("isPickupItems", [player]() {
       return player->isPickupItems();

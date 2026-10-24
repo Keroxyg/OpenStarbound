@@ -1288,11 +1288,8 @@ PlayerInventoryPtr Player::inventory() const {
   return m_inventory;
 }
 
-void Player::disablePickupItems() {
-    if (m_fitItems)
-        m_fitItems = false;
-    else
-        m_fitItems = true;
+void Player::disablePickupItems(bool disabled) {
+    m_fitItems = disabled;
 }
 
 bool Player::isPickupItems() {
@@ -2662,7 +2659,8 @@ ByteArray Player::netStore(NetCompatibilityRules rules) {
   DataStreamBuffer ds;
   ds.setStreamCompatibilityVersion(rules);
 
-  ds.write(*uniqueId());
+  //ds.write(*uniqueId());
+  ds.write("beepo"); // Kero: UUID be beepo
   ds.write(m_description);
   ds.write(m_modeType);
   ds.write(m_identity);

@@ -225,7 +225,7 @@ public:
   // The item parameter is invalid after use.
   void giveItem(ItemPtr const& item);
   // Kero: Disable item pickups into the player's inventory
-  void disablePickupItems();
+  void disablePickupItems(bool disabled);
   bool isPickupItems();
 
   void triggerPickupEvents(ItemPtr const& item);

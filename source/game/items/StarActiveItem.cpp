@@ -341,6 +341,9 @@ Vec2F ActiveItem::handPosition(Vec2F const& offset) const {
 
 LuaCallbacks ActiveItem::makeActiveItemCallbacks() {
   LuaCallbacks callbacks;
+  callbacks.registerCallback("handDrawables", [this]() {
+      return m_itemAnimator.drawables();
+    });
   callbacks.registerCallback("ownerEntityId", [this]() {
       return owner()->entityId();
     });

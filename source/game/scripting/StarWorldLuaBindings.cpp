@@ -419,6 +419,9 @@ namespace LuaBindings {
       callbacks.registerCallback("permissionConnection", [clientWorld]() {
         return clientWorld->connection();
       });
+      callbacks.registerCallback("ping", [clientWorld]() {
+          return clientWorld->latency();
+      });
     }
 
     if (auto serverWorld = as<WorldServer>(world)) {

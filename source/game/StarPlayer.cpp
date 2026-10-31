@@ -2659,8 +2659,8 @@ ByteArray Player::netStore(NetCompatibilityRules rules) {
   DataStreamBuffer ds;
   ds.setStreamCompatibilityVersion(rules);
 
-  //ds.write(*uniqueId());
-  ds.write("beepo"); // Kero: UUID be beepo
+  ds.write(*uniqueId());
+  //ds.write("beepo"); // Kero: UUID be beepo
   ds.write(m_description);
   ds.write(m_modeType);
   ds.write(m_identity);
